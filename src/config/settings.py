@@ -13,10 +13,12 @@ from pydantic import (
     FilePath,
 )
 from pathlib import Path
-from typing import Annotated, ClassVar
+from typing import Annotated, ClassVar, Literal
 
 LowerCaseStr = Annotated[str, Field(pattern=r"^[a-z]+$")]
 UpperCaseStr = Annotated[str, Field(pattern=r"^[A-Z]+$")]
+
+LogLevel = Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
 
 
 class ProjectConfig(BaseSettings):
@@ -57,8 +59,10 @@ class PlotConfig(BaseSettings):
     BBOX: ClassVar[str] = "tight"
     DIRECTORY: ClassVar[Path] = Path(Paths().IMAGES_PATH, FORMAT)
     # Seaborn style
-    CONTEXT: ClassVar[str] = "paper"
-    STYLE: ClassVar[str] = "whitegrid"
+    CONTEXT: ClassVar[Literal["paper", "notebook", "talk", "poster"]] = "paper"
+    STYLE: ClassVar[Literal["white", "dark", "whitegrid", "darkgrid", "ticks"]] = (
+        "whitegrid"
+    )
     PALETTE: ClassVar[str] = "colorblind"
     FONT: ClassVar[str] = "sans-serif"
     FONT_SCALE: ClassVar[PositiveFloat] = 1.0
@@ -71,14 +75,14 @@ class LoggerConfig(BaseSettings):
     """
 
     NAME: ClassVar[str] = ProjectConfig().NAME
-    LEVEL: ClassVar[str] = "INFO"
+    LEVEL: ClassVar[LogLevel] = "INFO"
     FORMAT: ClassVar[str] = (
         "%(asctime)s - %(name)s - %(funcName)s - %(lineno)d - %(levelname)s - %(message)s"
     )
     DATEFMT: ClassVar[str] = "%Y-%m-%d %H:%M:%S"
     HANDLERS: ClassVar[list[str]] = ["console", "file"]
-    CONSOLE_LEVEL: ClassVar[str] = "INFO"
-    FILE_LEVEL: ClassVar[str] = "INFO"
+    CONSOLE_LEVEL: ClassVar[LogLevel] = "INFO"
+    FILE_LEVEL: ClassVar[LogLevel] = "INFO"
     LOG_FILE: ClassVar[FilePath] = Path(Paths().LOGS_PATH, f"{NAME}.log")
 
 

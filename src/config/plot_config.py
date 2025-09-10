@@ -15,10 +15,7 @@ def setup_plot() -> None:
         context=PlotConfig.CONTEXT,
         style=PlotConfig.STYLE,
         palette=PlotConfig.PALETTE,
-        fontsize=PlotConfig.FONTSIZE,
-        figsize=PlotConfig.FIGSIZE,
-        dpi=PlotConfig.DPI,
-        rc = {
+        rc={
             "figure.figsize": PlotConfig.FIGSIZE,
             "figure.dpi": PlotConfig.DPI,
             "savefig.format": PlotConfig.FORMAT.lower(),

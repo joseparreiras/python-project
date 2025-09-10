@@ -580,3 +580,5 @@ ipython_config.py
 .cursorindexingignore
 .cursorrules
 .cursor/
+
+*.DS_Store
