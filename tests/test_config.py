@@ -1,6 +1,4 @@
-import pytest
 from src.config.settings import Settings
-
 
 def test_settings():
     settings = Settings()

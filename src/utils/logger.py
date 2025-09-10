@@ -10,7 +10,7 @@ from logging import (
     StreamHandler,
 )
 from logging import Formatter
-from src.config.settings import LoggerConfig
+from ..config.settings import LoggerConfig
 
 
 def setup_logger() -> Logger:

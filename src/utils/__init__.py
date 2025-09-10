@@ -1,5 +1,6 @@
 """__init__.py"""
 
-from src.utils.setup_logger import setup_logger
+from .logger import setup_logger
+from .plots import setup_plots
 
-__all__ = ["setup_logger"]
+__all__ = ["setup_logger", "setup_plots"]

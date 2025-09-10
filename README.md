@@ -109,12 +109,12 @@ mypy src
 - pytest is configured to only discover tests in `tests/` directory (see `pytest.ini` or `pyproject.toml`)
 
 ```bash
-pytest -q                                      # Run all tests quietly
-pytest -q --maxfail=1                         # Stop on first failure
-pytest -q -k "test_name"                      # Run specific test pattern
-pytest -q tests/test_specific.py              # Run specific test file
-pytest -q -m "not slow"                       # Skip tests marked as slow
-pytest -q --cov=src --cov-report=term-missing # With coverage (requires pytest-cov)
+python -m pytest -q                                      # Run all tests quietly
+python -m pytest -q --maxfail=1                         # Stop on first failure
+python -m pytest -q -k "test_name"                      # Run specific test pattern
+python -m pytest -q tests/<<test_specific>>.py              # Run specific test file
+python -m pytest -q -m "not slow"                       # Skip tests marked as slow
+python -m pytest -q --cov=src --cov-report=term-missing # With coverage (requires pytest-cov)
 ```
 
 ### Logging
@@ -123,16 +123,16 @@ pytest -q --cov=src --cov-report=term-missing # With coverage (requires pytest-c
 
 Minimal example:
 ```python
-from src.utils.setup_logger import get_logger
+from src.utils.logger import setup_logger()
 
-logger = get_logger(__name__)
+logger = setup_logger()
 logger.info("Hello from the template!")
 ```
 
 ---
 
 ## Configuration
-- Keep configuration in `src/config/` (e.g., `settings.py`, `plot_config.py`)
+- Keep configuration in `src/config/` (e.g., `settings.py`)
 - Prefer reading settings from a single place and passing them into functions explicitly
 - Add docstrings for all public functions/classes and document any data transformations
 
@@ -168,7 +168,7 @@ When saving artifacts, include metadata in filenames where helpful (date, versio
 black . && isort . && ruff check .
 
 # Tests
-pytest -q
+python -m pytest -q
 
 # Type checking
 mypy src

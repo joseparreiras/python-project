@@ -4,10 +4,10 @@ This module contains the configuration for the :mod:`matplotlib` and :mod:`seabo
 """
 
 from seaborn import set_theme
-from src.config.settings import PlotConfig
+from ..config.settings import PlotConfig
 
 
-def setup_plot() -> None:
+def setup_plots() -> None:
     """
     Setup the plot configuration using the :class:`src.config.settings.PlotConfig` parameters.
     """
