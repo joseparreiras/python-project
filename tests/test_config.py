@@ -1,5 +1,12 @@
-from src.utils.config.settings import (DataPaths, ImagesPaths, LoggerConfig,
-                                       Parameters, Paths, PlotConfig, Settings)
+from src.utils.config.settings import (
+    DataPaths,
+    ImagesPaths,
+    LoggerConfig,
+    Parameters,
+    Paths,
+    PlotConfig,
+    Settings,
+)
 
 
 def test_settings():

@@ -131,10 +131,10 @@
       "label": "Python: All Quality Checks",
       "dependsOrder": "sequence",
       "dependsOn": [
-        "Python: Format with Black",
         "Python: Sort Imports",
         "Python: Lint with Flake8",
         "Python: Type Check with MyPy"
+        "Python: Format with Black",
       ],
       "group": "build",
       "presentation": {
