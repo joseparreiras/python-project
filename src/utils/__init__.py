@@ -2,5 +2,6 @@
 
 from .logger import setup_logger
 from .plots import setup_plots
+from .tables import read_table, write_table
 
-__all__ = ["setup_logger", "setup_plots"]
+__all__ = []

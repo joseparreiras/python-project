@@ -4,22 +4,23 @@ This module contains the configuration for the :mod:`matplotlib` and :mod:`seabo
 """
 
 from seaborn import set_theme
-from ..config.settings import PlotConfig
+
+from .config.settings import PlotConfig
 
 
 def setup_plots() -> None:
     """
     Setup the plot configuration using the :class:`src.config.settings.PlotConfig` parameters.
     """
+    cfg = PlotConfig()
     set_theme(
-        context=PlotConfig.CONTEXT,
-        style=PlotConfig.STYLE,
-        palette=PlotConfig.PALETTE,
+        context=cfg.CONTEXT,
+        style=cfg.STYLE,
+        palette=cfg.PALETTE,
         rc={
-            "figure.figsize": PlotConfig.FIGSIZE,
-            "figure.dpi": PlotConfig.DPI,
-            "savefig.format": PlotConfig.FORMAT.lower(),
-            "savefig.bbox": PlotConfig.BBOX,
-            "savefig.directory": PlotConfig.DIRECTORY,
+            "figure.figsize": cfg.FIGSIZE,
+            "figure.dpi": cfg.DPI,
+            "savefig.format": cfg.FORMAT.lower(),
+            "savefig.bbox": cfg.BBOX,
         },
     )
